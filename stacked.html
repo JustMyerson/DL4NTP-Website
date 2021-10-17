@@ -18,12 +18,14 @@
 <body class="is-preload">
 
 
-	<!-- One -->
-	<section id="one" class="main style1">
+	<!-- Data Preprocessing -->
+	<section id="datap" class="main style1">
 		<div class="container">
 			<div class="inner">
 				<ul class="actions special">
 					<li><a href="index.html" class="button scrolly">Home</a></li>
+					<li><a href="#prelim" class="button scrolly">Preliminary Data Analysis</a></li>
+					<li><a href="#stacked" class="button scrolly">Stacked LSTM</a></li>
 				</ul>
 			</div>
 			<div class="row gtr-150">
@@ -56,8 +58,7 @@
 						models. Initially, the categorical features
 						were encoded using one-hot encoding - which creates a new
 						binary column for each instance of a categorical variable
-						- however, this caused the DataFrame’s dimensions to in-
-						crease dramatically and had little impact on the predictive
+						- however, this caused the DataFrame’s dimensions to increase dramatically and had little impact on the predictive
 						power of the LSTM models - so the categorical variables
 						were subsequently dropped from the DataFrame.
 
@@ -68,18 +69,14 @@
 						new variables were engineered. The first is a simple day
 						variable - which numerically encodes the day of the week -
 						and the second is a binary holiday variable - which asserts
-						whether the network flow occurred during a university holi-
-						day or not. The holiday dates were defined by the University
+						whether the network flow occurred during a university holiday or not. The holiday dates were defined by the University
 						of Cape Town’s academic schedule for 2020. Interestingly,
 						the date of a traffic flow and the time it was first seen on
-						the network were stored independently, but these were com-
-						bined to create a TimeStamp value for each observation.
+						the network were stored independently, but these were combined to create a TimeStamp value for each observation.
 						Furthermore, each of the SANReN features was transformed
-						into an LSTM-recognised data type. Byte values were en-
-						coded to 64-bit float representations, strings were removed -
+						into an LSTM-recognised data type. Byte values were encoded to 64-bit float representations, strings were removed -
 						as strings are not acceptable input for a TensorFlow LSTM -
-						and temporal values were encoded to 64-bit integer nanosec-
-						ond representations.
+						and temporal values were encoded to 64-bit integer nanosecond representations.
 					</p>
 				</div>
 				<div class="col-6 col-12-medium imp-medium">
@@ -147,8 +144,8 @@
 				</div>
 	</section>
 
-	<!-- Two -->
-	<section id="two" class="main style2">
+	<!-- Preliminary Data Analysis -->
+	<section id="prelim" class="main style2">
 		<div class="container">
 			<div class="row gtr-150">
 				<div class="col-6 col-12-medium imp-medium">
@@ -172,27 +169,21 @@
 						all of the variables apart from the three that make up the
 						stronger, orange correlations in the upper left of the matrix
 						was considered, although due to the non-linearity of the data,
-						this design decision was rejected. Other correlative relation-
-						ships of interest are the negative relationship between Bytes
+						this design decision was rejected. Other correlative relationships of interest are the negative relationship between Bytes
 						and Datetime and the strong positive relationship between
-						Duration and the response. In this sample, the weak corre-
-						lation between Bytes and Datetime suggest that the byte
+						Duration and the response. In this sample, the weak correlation between Bytes and Datetime suggest that the byte
 						volume per flow is decreasing as time increases. Importantly,
-						this does not imply that there is less network traffic in gen-
-						eral because network traffic volume is a function of byte
+						this does not imply that there is less network traffic in general because network traffic volume is a function of byte
 						per flow as well as the number of flows. The relationship
-						between Bytes and Duration implies that longer flows gen-
-						erally have more data being transferred - which is a sensible
+						between Bytes and Duration implies that longer flows generally have more data being transferred - which is a sensible
 						assumption.
 					</p>
 					<p>The preliminary data analysis provides an opportunity
 						to garner insight into whether SANReN traffic data varies with time and
 						day in relation to the South African university calendar?
 						To extract the relationship between time of day, university holidays
-						and byte volumes, a pair of scatter plots were fitted. Fig-
-						ure 4 shows the total byte flows over each day of the week.
-						Surprisingly, there is noclear distinction between bytes flows during the week com-
-						pared to the weekend. Similarly, the total byte flow per
+						and byte volumes, a pair of scatter plots were fitted. Figure 4 shows the total byte flows over each day of the week.
+						Surprisingly, there is noclear distinction between bytes flows during the week compared to the weekend. Similarly, the total byte flow per
 						day is shown in Figure 5. Again, it is surprising to see that the total byte flows are higher on
 						average
 						during a holiday. This is unexpected, as the SANReN links
@@ -202,33 +193,153 @@
 		</div>
 	</section>
 
-	<!-- One -->
-	<section id="one" class="main style1">
+	<!-- Prelim continued -->
+	<section id="prelim2" class="main style1">
 		<div class="container">
 			<div class="row gtr-150">
 				<div class="col-6 col-12-medium">
 					<p>
-							In the context of a distribu-
-							tion, skewness is a measure of how asymmetric the data is.
-							It is clear that the data is extremely skewed to the right, indi-
-							cated by the density of low byte value observations to the left
-							of the curve, and the massive byte flows shown as one moves
-							along the tail to the right. The outlying values have the effect
-							of increasing the mean of the data. It is important to note
-							that the LSTM models in this project are designed to capture
-							outlying burst flows, although the magnitude of some of
-							the outliers in the SANReN data mean that the models may
-							under-predict these observations under testing conditions.
+						In the context of a distribution, skewness is a measure of how asymmetric the data is.
+						It is clear that the data is extremely skewed to the right, indicated by the density of low byte value observations to the left
+						of the curve, and the massive byte flows shown as one moves
+						along the tail to the right. The outlying values have the effect
+						of increasing the mean of the data. It is important to note
+						that the LSTM models in this project are designed to capture
+						outlying burst flows, although the magnitude of some of
+						the outliers in the SANReN data means that the models may
+						under-predict these observations under testing conditions. The five
+						number summary in Table 2 shows the response values in megabytes and demonstrates
+						the magntitude of outliers in the dataset.
 					</p>
 					<h3>LSTM Data Preparation</h3>
+					<p>
+						All machine learning algorithms require that the input data is split into training
+						and testing samples. The training data is the sample of the
+						SANReN data that is used to adjust the weights of the LSTM.
+						For our implementation of the LSTMs, the training sample
+						is 64% of the full input sample. Additionally, the training
+						sample is split to produce the validation set. An interesting
+						observation is identified when examining how the validation
+						set is constructed. To ensure the sequential nature of the
+						data, the data is not shuffled when it is split into training
+						and test sets, and it is not shuffled when being split into
+						training and validation sets. he information provided
+						by the validation set - primarily the out-of-sample MSE of
+						the fitted model - allows the hyperparameters of the model
+						to be adjusted. The model’s evaluation on the validation set
+						becomes more biased as the hyperparameters are adjusted.
+						This is because the model starts to fit the validation set better
+						as the information it provides is incorporated into the model
+						configuration. In our implementation, the validation set is
+						20% of the training set. Lastly, the test set is the sample of
+						data that is used to provide a truly unbiased evaluation of
+						the final model fit. The test set is used as input to the final,
+						trained model.
+					</p>
+					<p>
+						Once the train, test and validation sets have been created,
+						LSTM models require that all data is normalised to an equal
+						range of values. The MinMaxScaler from the scikit-learn
+						package scales all variables to a range of 0 to 1. Usually,
+						categorical variables would have to be encoded separately,
+						however, the categorical variables of the SANReN dataset
+						have not been used as predictors in the LSTM models. After the LSTM models have been implemented, the response
+						can be predicted. However, due to the scaled nature of the
+						inputs, the output is also a scaled value between 0 and 1. To
+						convert the LSTM predicted response back to a byte value, a
+						MinMaxScaler is used. The data is then fully prepared, and
+						ready to be given to the LSTM models.
+					</p>
 				</div>
 				<div class="col-6 col-12-medium imp-medium">
+					<h5>Figure 1</h5>
 					<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
+					<h5>Table 2</h5>
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>Min</th>
+									<th>Q1</th>
+									<th>Median</th>
+									<th>Q3</th>
+									<th>Max</th>
+									<th>Mean</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>0.02</td>
+									<td>0.1</td>
+									<td>0.75</td>
+									<td>2.2</td>
+									<td>177</td>
+									<td>3.15</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<!-- Stacked LSTM -->
+	<section id="stacked" class="main style2">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium imp-medium">
+					<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
+					<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
+				</div>
+				<div class="col-6 col-12-medium">
+					<header class="major">
+						<h2>Stacked LSTM<br />
+						</h2>
+					</header>
+					<p>A stacked LSTM is a simple LSTM
+						with multiple LSTM layers. Rather than a hidden layer immediately producing a scalar output, the LSTM layer will provide a sequence output to the LSTM
+						layer below it. This
+						implies that the data remains in a three-dimensional format
+						whilst it passes through each of the hidden LSTM layers,
+						before being converted to the required scalar value.
+						Our implementation of a stacked LSTM in Keras uses
+						three LSTM layers, each with the same number of neurons.
+						Essentially, an LSTM layer returns
+						a sequential output rather than a single scalar. The output
+						layer, the Dense layer in Keras, outputs a scalar prediction
+						based on the three-dimensional input it receives from the
+						LSTM layer above it.
+					</p>
+					<h3>Hyperparameter Tuning</h3>
+					<p>
+						All three of the LSTM models are parameterised functions,
+						meaning that there is an optimal combination of parameters
+						that will minimise the chosen cost function and produce the
+						best performing model [29]. This process is known as hyperparameter tuning. The simple, bidirectional and stacked
+						LSTM models were fitted over a range of hyperparameters.
+						In the context of LSTMs, these parameters are epochs - the
+						number of times the data is passed through the model - and
+						neurons - the number of memory units in each LSTM layer.
+						In this study, each LSTM model was trained using a range
+						of epochs from 25 to 150, with 25 epoch intervals, and with
+						50 or 100 neurons in each LSTM layer of the model. This
+						resulted in 12 permutations of hyperparameter combinations for each model.
+					</p>
+
+					<p>The optimisation of the stacked LSTM was done using Mean Average Error, Mean Squared Error and
+						Rsquared as assesors of the model's performance on training and validation data. The entire
+						optimisation process can be
+						seen in Antony's Final Paper, although Figure ? best demonstrates why the stacked LSTM was
+						optimised the way it was. The optimal
+						hyperparameters for the stacked LSTM model are 100 epochs and 50 neurons.
+					</p>
+					<ul class="actions special">
+							<li><a href="index.html" class="button scrolly">Back to Home</a></li>
+						</ul>
 				</div>
 			</div>
 		</div>
 	</section>
-
 
 	<!-- Five -->
 	<!--
