@@ -84,10 +84,40 @@
 								<h2>Experiment Design and Implemenation<br />
 								</h2>
 							</header>
-							<p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-							<p>Blandit faucibus proin. Ac aliquam integer adipiscing enim non praesent vis commodo nunc phasellus cubilia ac risus accumsan. Accumsan blandit. Lobortis phasellus non lobortis dit varius mi varius accumsan lobortis. Blandit ante aliquam lacinia lorem lobortis semper morbi col faucibus vitae integer placerat accumsan orci eu mi odio tempus adipiscing adipiscing adipiscing curae consequat feugiat etiam dolore.</p>
-							<p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
+							<p>The SANREN data was extracted from the SANREN server. 
+							Traffic flows from 5 consecutive days (5 - 10 July 2020) were extracted. 
+							In order to standardise the data, all traffic flows were converted into bytes to create a single unit of measurement.
+							The LSTM models were evaluated during and after training. During training, the training and validation losses were measured. 
+							When predicting future traffic flows, they were then assessed on their prediction accuracy.</p>
+							<p>The Bidirectional, Simple and Stacked LSTM models were all developed in Python.
+							The Simple LSTM served as a benchmark with which to compare our Bidirectional and Stacked LSTMs.
+							Once training validation error reaches a minimum, training is stopped and those hyperparamters are used for testing.</p>
 							<a href="stacked.html" class="button">Learn More</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="one" class="main style1">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+							<header class="major">
+								<h2>Overall Findings<br />
+								</h2>
+							</header>
+							<li>
+								The results show that the stacked LSTM is the most accurate model. It had the best MSE by 40% and the highest R2 by 23%. ​However, it also takes the longest to train – nearly double the simpler models. ​
+							</li><li>
+								Prediction accuracy for all models increased with sample size - at the cost of an increased training time.​
+							</li><li>
+								The bidirectional LSTM is the least accurate predictor and does not justify its additional complexity.​
+							</li><li>
+								The preliminary statistical analysis also determined that there is no obvious pattern linking SANReN network traffic flows with the university calendar. 
+							</li>
+						</div>
+						<div class="col-6 col-12-medium imp-medium">
+							<span class="image fit"><img src="./images/Capture.PNG" alt="" /></span>
 						</div>
 					</div>
 				</div>
@@ -153,10 +183,12 @@
 					<header class="major">
 						<h2>Meet the Brains Behind The Project</h2>
 					</header>
-					<p>Sed lacus nascetur ac ante amet sapien.</p>
+					<p>Justin Myerson - myrjus002@myuct.ac.za</p>
+					<p>Antony Fleischer - flsant005@myuct.ac.za</p>
+					<p>Josiah Chavula (Supervisor) - jchavula@cs.uct.ac.za</p>
 					<ul class="actions special">
-						<li><a href="#" class="button wide primary">Sign Up</a></li>
-						<li><a href="#" class="button wide">Learn More</a></li>
+						<li><a href="https://www.linkedin.com/in/justinadammyerson/" class="button wide">Justin - Linkedin</a></li>
+						<li><a href="https://www.linkedin.com/in/antony-fleischer-8ab2811b4/" class="button wide">Antony - Linkedin</a></li>
 					</ul>
 				</div>
 			</section>
