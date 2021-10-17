@@ -5,217 +5,344 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Deep Learning for Network Traffic Prediction</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
 
-		<!-- Header -->
-			<section id="header">
-				<div class="inner">
-					<span class="icon solid major fa-cloud"></span>
-					<h1>Deep Learning for <strong>Network Traffic Prediction</strong></h1>
-					<p>Long Short Term Memory models for predicting network on the South African Research and Education Network</p>
-					<ul class="actions special">
-						<li><a href="#one" class="button scrolly">Discover</a></li>
-					</ul>
-				</div>
-			</section>
+<head>
+	<title>Deep Learning for Network Traffic Prediction</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
 
-		<!-- One -->
-			<section id="one" class="main style1">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>Introduction and Problem<br />
-								</h2>
-							</header>
-							<p>
-								Time series forecasting is a method that uses models fitted
-								on historical data to predict future values of an observation.
-								Network traffic prediction is a form of time series forecasting
-								that allows computer network operators to manage their
-								networks more efficiently. Accurate traffic prediction can
-								improve a network’s performance significantly, in areas such
-								as network congestion management, resource distribution
-								and network volume alerts. Most neural network models
-								find it difficult to learn the long-range temporal relationships
-								in a dataset - primarily due to the non-stationary and
-								non-linear qualities that time-series data presents. However,
-								existing literature suggests that Long Short Term Memory
-								(LSTM) models can capture the long and short-term trends
-								in network traffic data. This paper implements three LSTM
-								models for network traffic prediction on the SANReN. Over
-								a range of grid-searched hyperparameters, a stacked LSTM
-								model is the most accurate model in general. However, it is
-								also the most computationally expensive, and the network
-								traffic prediction and resource requirements of a network
-								operator may
-							</p>
-						</div>
-						<div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
-						</div>
-					</div>
-				</div>
-			</section>
+<body class="is-preload">
 
-		<!-- Two -->
-			<section id="two" class="main style2">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<ul class="major-icons">
-								<li><span class="icon solid style1 major fa-code"></span></li>
-								<li><span class="icon solid style2 major fa-bolt"></span></li>
-								<li><span class="icon solid style3 major fa-camera-retro"></span></li>
-								<li><span class="icon solid style4 major fa-cog"></span></li>
-								<li><span class="icon solid style5 major fa-desktop"></span></li>
-								<li><span class="icon solid style6 major fa-calendar"></span></li>
-							</ul>
-						</div>
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>Experiment Design and Implemenation<br />
-								</h2>
-							</header>
-							<p>Both computational complexity and run time
-							can be a limiting factor for less-resourced networks, which
-							may result in different network traffic prediction models
-							being better suited for them. Existing literature on network
-							traffic volume predictors has shown that neural networks -
-							particularly Long Short Term Models (LSTM) - provide improvements
-							in accuracy and performance over traditional
-							statistical prediction methods. Furthermore, LSTM derivative
-							models, such as the stacked LSTM and bidirectional LSTM,
-							have out-performed baseline LSTMs.
-							</p>
-							<p>Initially timeseries
-								data were obtained from SANReN. This data was used to train, validate
-								and test the LSTMs that this paper evaluates.
-								The data set consists of a multitude of files, each describing
-								traffic flows on the network over a period of time.
-							</p>
-							<p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-						</div>
-					</div>
-				</div>
-			</section>
 
-		<!-- One -->
-			<section id="one" class="main style1">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>What we Discovered<br />
-								</h2>
-							</header>
-							<p>
-								Time series forecasting is a method that uses models fitted
-								on historical data to predict future values of an observation.
-								Network traffic prediction is a form of time series forecasting
-								that allows computer network operators to manage their
-								networks more efficiently. Accurate traffic prediction can
-								improve a network’s performance significantly, in areas such
-								as network congestion management, resource distribution
-								and network volume alerts. Most neural network models
-								find it difficult to learn the long-range temporal relationships
-								in a dataset - primarily due to the non-stationary and
-								non-linear qualities that time-series data presents. However,
-								existing literature suggests that Long Short Term Memory
-								(LSTM) models can capture the long and short-term trends
-								in network traffic data. This paper implements three LSTM
-								models for network traffic prediction on the SANReN. Over
-								a range of grid-searched hyperparameters, a stacked LSTM
-								model is the most accurate model in general. However, it is
-								also the most computationally expensive, and the network
-								traffic prediction and resource requirements of a network
-								operator may
-							</p>
-						</div>
-						<div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
-						</div>
-					</div>
-				</div>
-			</section>
-
-		<!-- Three -->
-			<section id="three" class="main style1 special">
-				<div class="container">
+	<!-- Data Preprocessing -->
+	<section id="datap" class="main style1">
+		<div class="container">
+			<div class="inner">
+				<ul class="actions special">
+					<li><a href="index.html" class="button scrolly">Home</a></li>
+					<li><a href="#prelim" class="button scrolly">Preliminary Data Analysis</a></li>
+					<li><a href="#stacked" class="button scrolly">Stacked LSTM</a></li>
+				</ul>
+			</div>
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
 					<header class="major">
-						<h2>Resources</h2>
+						<h2>Data Preprocessing<br />
+						</h2>
 					</header>
-					<p>Literature Reviews, Project Proposals and Final Papers</p>
-					<div class="row gtr-150">
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-							<h3>Literature Review</h3>
-							<p>Justin Myerson</p>
-							<ul class="actions special">
-								<li><a href="assets\documents\DL4NTP___Literature_Review_Final.pdf" class="button" download>Download</a></li>
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-							<h3>Final Paper</h3>
-							<p>Justin Myerson</p>
-							<ul class="actions special">
-								<li><a href="assets\documents\DL4NTP Justin Final Paper.pdf" class="button" download>Download</a></li>
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-							<h3>Literature Review</h3>
-							<p>Antony Fleischer</p>
-							<ul class="actions special">
-								<li><a href="assets\documents\DL4NTP_Literature_Review_FLSANT005.pdf" class="button" download>Download</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="row gtr-150">
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-							<h3>Final Paper</h3>
-							<p>Antony Fleischer</p>
-							<ul class="actions special">
-								<li><a href="assets\documents\FLSANT005_DL4NTP.pdf" class="button" download>Download</a></li>
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-							<h3>Project Proposal</h3>
-							<p>Justin Myerson and Antony Fleischer</p>
-							<ul class="actions special">
-								<li><a href="assets\documents\DL4NTP Final Proposal.pdf" class="button" download>Download</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
+					<h3>Obtaining SANReN Data</h3>
+					<p>
+						The first step in conducting our research was to obtain times-
+						series network traffic data from SANReN. This data was
+						accessed through the University of Cape Town. The data is
+						stored as tab-separated .csv files, and each data set consists
+						of a multitude of variables, each describing the quality of the
+						network traffic flows on SANReN over a measured period of
+						time. The SANReN data has been placed on a data store at the
+						University of Cape Town - which is available to be accessed
+						remotely. However, for this research project, a smaller 47000-
+						observation sample was used to train, validate and test the
+						LSTMs that this paper evaluates. An example of the format
+						of the SANReN data is provided in Table 1. The response variable for
+						this project is Bytes per flow, shown in bold on the right.
+					</p>
+					<h3>Data Engineering</h3>
+					<p>
+						The raw SANReN data has to be extracted and cleaned for
+						a neural network model. This preprocessing step transforms. raw data into input for each of the
+						neural network
+						models. Initially, the categorical features
+						were encoded using one-hot encoding - which creates a new
+						binary column for each instance of a categorical variable
+						- however, this caused the DataFrame’s dimensions to increase dramatically and had little impact on the predictive
+						power of the LSTM models - so the categorical variables
+						were subsequently dropped from the DataFrame.
 
-		<!-- Four -->
-			<section id="four" class="main style2 special">
-				<div class="container">
+					</p>
+					<p>
+						Additionally, to capture the relationship between South
+						African university schedules and network traffic data, two
+						new variables were engineered. The first is a simple day
+						variable - which numerically encodes the day of the week -
+						and the second is a binary holiday variable - which asserts
+						whether the network flow occurred during a university holiday or not. The holiday dates were defined by the University
+						of Cape Town’s academic schedule for 2020. Interestingly,
+						the date of a traffic flow and the time it was first seen on
+						the network were stored independently, but these were combined to create a TimeStamp value for each observation.
+						Furthermore, each of the SANReN features was transformed
+						into an LSTM-recognised data type. Byte values were encoded to 64-bit float representations, strings were removed -
+						as strings are not acceptable input for a TensorFlow LSTM -
+						and temporal values were encoded to 64-bit integer nanosecond representations.
+					</p>
+				</div>
+				<div class="col-6 col-12-medium imp-medium">
+					<br>
+					<br>
+					<br>
+					<h5>Table 1</h5>
+					<div class="table-wrapper">
+						<table class="alt">
+							<thead>
+								<tr>
+									<th>Variable</th>
+									<th>Example Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Date</td>
+									<td>2020-07-04</td>
+								</tr>
+								<tr>
+									<td>First-seen</td>
+									<td>20:10:06.480</td>
+								</tr>
+								<tr>
+									<td>Duration</td>
+									<td>1.223</td>
+								</tr>
+								<tr>
+									<td>SrcIP</td>
+									<td>146.231.4.0</td>
+								</tr>
+								<tr>
+									<td>DstIP</td>
+									<td>155.232.240.0</td>
+								</tr>
+								<tr>
+									<td>Packets</td>
+									<td>4500</td>
+								</tr>
+								<tr>
+									<td><strong>Bytes</strong></td>
+									<td>234000</td>
+								</tr>
+								<tr>
+									<td>pps</td>
+									<td>3679</td>
+								</tr>
+
+								<tr>
+									<td>bbs</td>
+									<td>1.5 M</td>
+								</tr>
+
+
+								<tr>
+									<td>Bpp</td>
+									<td>52</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+
+				</div>
+	</section>
+
+	<!-- Preliminary Data Analysis -->
+	<section id="prelim" class="main style2">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium imp-medium">
+					<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
+					<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
+				</div>
+				<div class="col-6 col-12-medium">
 					<header class="major">
-						<h2>Meet the Brains Behind The Project</h2>
+						<h2>Preliminary Data Analysis<br />
+						</h2>
 					</header>
-					<p>Sed lacus nascetur ac ante amet sapien.</p>
-					<ul class="actions special">
-						<li><a href="#" class="button wide primary">Sign Up</a></li>
-						<li><a href="#" class="button wide">Learn More</a></li>
-					</ul>
+					<p>To provide insight
+						into the underlying patterns, correlations and composition
+						of the SANReN data, a preliminary statistical analysis was
+						performed.
+					</p>
+					<p>
+						To
+						investigate the possibility of multicollinearity, a correlation
+						matrix 3 was plotted. The option of removing
+						all of the variables apart from the three that make up the
+						stronger, orange correlations in the upper left of the matrix
+						was considered, although due to the non-linearity of the data,
+						this design decision was rejected. Other correlative relationships of interest are the negative relationship between Bytes
+						and Datetime and the strong positive relationship between
+						Duration and the response. In this sample, the weak correlation between Bytes and Datetime suggest that the byte
+						volume per flow is decreasing as time increases. Importantly,
+						this does not imply that there is less network traffic in general because network traffic volume is a function of byte
+						per flow as well as the number of flows. The relationship
+						between Bytes and Duration implies that longer flows generally have more data being transferred - which is a sensible
+						assumption.
+					</p>
+					<p>The preliminary data analysis provides an opportunity
+						to garner insight into whether SANReN traffic data varies with time and
+						day in relation to the South African university calendar?
+						To extract the relationship between time of day, university holidays
+						and byte volumes, a pair of scatter plots were fitted. Figure 4 shows the total byte flows over each day of the week.
+						Surprisingly, there is noclear distinction between bytes flows during the week compared to the weekend. Similarly, the total byte flow per
+						day is shown in Figure 5. Again, it is surprising to see that the total byte flows are higher on
+						average
+						during a holiday. This is unexpected, as the SANReN links
+						research units and other university-related institutions.</p>
 				</div>
-			</section>
+			</div>
+		</div>
+	</section>
 
-		<!-- Five -->
-		<!--
+	<!-- Prelim continued -->
+	<section id="prelim2" class="main style1">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
+					<p>
+						In the context of a distribution, skewness is a measure of how asymmetric the data is.
+						It is clear that the data is extremely skewed to the right, indicated by the density of low byte value observations to the left
+						of the curve, and the massive byte flows shown as one moves
+						along the tail to the right. The outlying values have the effect
+						of increasing the mean of the data. It is important to note
+						that the LSTM models in this project are designed to capture
+						outlying burst flows, although the magnitude of some of
+						the outliers in the SANReN data means that the models may
+						under-predict these observations under testing conditions. The five
+						number summary in Table 2 shows the response values in megabytes and demonstrates
+						the magntitude of outliers in the dataset.
+					</p>
+					<h3>LSTM Data Preparation</h3>
+					<p>
+						All machine learning algorithms require that the input data is split into training
+						and testing samples. The training data is the sample of the
+						SANReN data that is used to adjust the weights of the LSTM.
+						For our implementation of the LSTMs, the training sample
+						is 64% of the full input sample. Additionally, the training
+						sample is split to produce the validation set. An interesting
+						observation is identified when examining how the validation
+						set is constructed. To ensure the sequential nature of the
+						data, the data is not shuffled when it is split into training
+						and test sets, and it is not shuffled when being split into
+						training and validation sets. he information provided
+						by the validation set - primarily the out-of-sample MSE of
+						the fitted model - allows the hyperparameters of the model
+						to be adjusted. The model’s evaluation on the validation set
+						becomes more biased as the hyperparameters are adjusted.
+						This is because the model starts to fit the validation set better
+						as the information it provides is incorporated into the model
+						configuration. In our implementation, the validation set is
+						20% of the training set. Lastly, the test set is the sample of
+						data that is used to provide a truly unbiased evaluation of
+						the final model fit. The test set is used as input to the final,
+						trained model.
+					</p>
+					<p>
+						Once the train, test and validation sets have been created,
+						LSTM models require that all data is normalised to an equal
+						range of values. The MinMaxScaler from the scikit-learn
+						package scales all variables to a range of 0 to 1. Usually,
+						categorical variables would have to be encoded separately,
+						however, the categorical variables of the SANReN dataset
+						have not been used as predictors in the LSTM models. After the LSTM models have been implemented, the response
+						can be predicted. However, due to the scaled nature of the
+						inputs, the output is also a scaled value between 0 and 1. To
+						convert the LSTM predicted response back to a byte value, a
+						MinMaxScaler is used. The data is then fully prepared, and
+						ready to be given to the LSTM models.
+					</p>
+				</div>
+				<div class="col-6 col-12-medium imp-medium">
+					<h5>Figure 1</h5>
+					<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
+					<h5>Table 2</h5>
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>Min</th>
+									<th>Q1</th>
+									<th>Median</th>
+									<th>Q3</th>
+									<th>Max</th>
+									<th>Mean</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>0.02</td>
+									<td>0.1</td>
+									<td>0.75</td>
+									<td>2.2</td>
+									<td>177</td>
+									<td>3.15</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<!-- Stacked LSTM -->
+	<section id="stacked" class="main style2">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium imp-medium">
+					<span class="image fit"><img src="./images/Stacked-Deep-LSTM-Network-Architecture.png" alt="" /></span>
+					<span class="image fit"><img src="./images/StackedMSEvsEpochs.png" alt="" /></span>
+				</div>
+				<div class="col-6 col-12-medium">
+					<header class="major">
+						<h2>Stacked LSTM<br />
+						</h2>
+					</header>
+					<p>A stacked LSTM is a simple LSTM
+						with multiple LSTM layers. Rather than a hidden layer immediately producing a scalar output, the LSTM layer will provide a sequence output to the LSTM
+						layer below it. This
+						implies that the data remains in a three-dimensional format
+						whilst it passes through each of the hidden LSTM layers,
+						before being converted to the required scalar value.
+						Our implementation of a stacked LSTM in Keras uses
+						three LSTM layers, each with the same number of neurons.
+						Essentially, an LSTM layer returns
+						a sequential output rather than a single scalar. The output
+						layer, the Dense layer in Keras, outputs a scalar prediction
+						based on the three-dimensional input it receives from the
+						LSTM layer above it.
+					</p>
+					<h3>Hyperparameter Tuning</h3>
+					<p>
+						All three of the LSTM models are parameterised functions,
+						meaning that there is an optimal combination of parameters
+						that will minimise the chosen cost function and produce the
+						best performing model [29]. This process is known as hyperparameter tuning. The simple, bidirectional and stacked
+						LSTM models were fitted over a range of hyperparameters.
+						In the context of LSTMs, these parameters are epochs - the
+						number of times the data is passed through the model - and
+						neurons - the number of memory units in each LSTM layer.
+						In this study, each LSTM model was trained using a range
+						of epochs from 25 to 150, with 25 epoch intervals, and with
+						50 or 100 neurons in each LSTM layer of the model. This
+						resulted in 12 permutations of hyperparameter combinations for each model.
+					</p>
+
+					<p>The optimisation of the stacked LSTM was done using Mean Average Error, Mean Squared Error and
+						Rsquared as assesors of the model's performance on training and validation data. The entire
+						optimisation process can be
+						seen in Antony's Final Paper, although Figure ? best demonstrates why the stacked LSTM was
+						optimised the way it was. The optimal
+						hyperparameters for the stacked LSTM model are 100 epochs and 50 neurons.
+					</p>
+					<ul class="actions special">
+							<li><a href="index.html" class="button scrolly">Back to Home</a></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Five -->
+	<!--
 			<section id="five" class="main style1">
 				<div class="container">
 					<header class="major special">
@@ -532,24 +659,27 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			</section>
 		-->
 
-		<!-- Footer -->
-			<section id="footer">
-				<ul class="icons">
-					<li><a href="https://github.com/fle1scha/Deep-Learning-Network-Traffic-Prediction" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="mailto:myrjus002@myuct.ac.za?cc=FLSANT005@myuct.ac.za" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Justin Myerson and Antony Fleischer</li>
-				</ul>
-			</section>
+	<!-- Footer -->
+	<section id="footer">
+		<ul class="icons">
+			<li><a href="https://github.com/fle1scha/Deep-Learning-Network-Traffic-Prediction"
+					class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+			<li><a href="mailto:myrjus002@myuct.ac.za?cc=FLSANT005@myuct.ac.za" class="icon solid alt fa-envelope"><span
+						class="label">Email</span></a></li>
+		</ul>
+		<ul class="copyright">
+			<li>&copy; Justin Myerson and Antony Fleischer</li>
+		</ul>
+	</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
-	</body>
+</body>
+
 </html>
