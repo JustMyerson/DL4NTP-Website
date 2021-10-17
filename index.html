@@ -123,65 +123,106 @@
 		</div>
 	</section>
 
-			<section id="one" class="main style1">
-				<div class="container">
-					<div class="row gtr-150">
-						<div >
-							<header class="major">
-								<h2>What We Found<br />
-								</h2>
-							</header>
-							<li>
-								The results show that the stacked LSTM is the most accurate model. It had the best MSE by 40% and the highest R2 by 23%. ​However, it also takes the longest to train – nearly double the simpler models. ​
-							</li><li>
-								Prediction accuracy for all models increased with sample size - at the cost of an increased training time.​
-							</li><li>
-								The Bidirectional LSTM is the least accurate predictor and does not justify its additional complexity.​
-							</li><li>
-								The preliminary statistical analysis also determined that there is no obvious pattern linking SANREN network traffic flows with the university calendar. 
-							</li>
-						</div>
-						<div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="./images/Capture.PNG" alt="" /></span>
-						</div>
+	<!-- The Problem -->
+	<section id="problem" class="main style2">
+			<div class="container">
+				<div class="row gtr-150">
+					<div class="col-6 col-12-medium">
+						<ul class="major-icons">
+							<li><span class="icon solid style1 major fa-code"></span></li>
+							<li><span class="icon solid style2 major fa-bolt"></span></li>
+							<li><span class="icon solid style3 major fa-camera-retro"></span></li>
+							<li><span class="icon solid style4 major fa-cog"></span></li>
+							<li><span class="icon solid style5 major fa-desktop"></span></li>
+							<li><span class="icon solid style6 major fa-calendar"></span></li>
+						</ul>
+					</div>
+					<div class="col-6 col-12-medium">
+						<header class="major">
+							<h2>The Problem <br /></h2>
+						</header>
+						<p>
+							Modern computer networks are facing the challenges as-
+							sociated with transferring unprecedented amounts of data.
+							Furthermore, large, confederated computer networks exhibit
+							volatile network traffic flows. Historically, network operators
+							have attempted to use traditional statistical learning
+							methods to optimise their networks. However, as
+							network flows increase dramatically, network operators
+							require more efficient and accurate time-series processing
+							methods to overcome network congestion, reduce access
+							times, allocate bandwidth effectively and detect traffic anomalies.
+						</p>
+						<p>
+							It is important to consider the constraints and resources of
+							a network when evaluating a candidate model for network
+							traffic prediction. Both computational complexity and run
+							time can be a limiting factor for less-resourced networks
+							such as SANReN, which may result in different network
+							traffic prediction models being better suited for networks
+							of this class. LSTM derivative models, such as the
+							stacked LSTM and bilateral LSTM, have been shown to out-performe base-
+							line, vanilla LSTMs. Whilst the predictive performance of an LSTM is the primary
+							focus of this project, the computational feasibility of LSTM
+							and LSTM-derivative prediction models will also be investigated.
+						</p>
+						<p>The SANREN data was extracted from the SANREN server. 
+								Traffic flows from 5 consecutive days (5 - 10 July 2020) were extracted. 
+								In order to standardise the data, all traffic flows were converted into bytes to create a single unit of measurement.
+								The LSTM models were evaluated during and after training. During training, the training and validation losses were measured. 
+								When predicting future traffic flows, they were then assessed on their prediction accuracy.</p>
+								<p>The Bidirectional, Simple and Stacked LSTM models were all developed in Python.
+								The Simple LSTM served as a benchmark with which to compare our Bidirectional and Stacked LSTMs.
+								Once training validation error reaches a minimum, training is stopped and those hyperparamters are used for testing.</p>
+	
 					</div>
 				</div>
-			</section>
-
-		<!-- Three -->
-			<section id="three" class="main style1 special">
-				<div class="container">
-					<header class="major">
-						<h2>Data Preprocessing and Stacked LSTM<br />
-						</h2>
-						<h3>Antony Fleischer</h3>
-					</header>
-					<p>
-						edrfghggd
-					</p>
-					<ul class="actions special">
-						<li><a href="stacked.html" class="button scrolly">Learn More</a></li>
-					</ul>
-				</div>
 			</div>
-			<div >
-				<div >
-					<header class="major">
-						<h2>Simple and Bidirectional LSTM<br />
-						</h2>
-						<h3>Justin Myerson</h3>
-					</header>
-					<p>
-						The Simple LSTM acts as the baseline measure with which to compare the Bidirectional and Stacked LSTM.
-						It is a vanilla LSTM, and performed suprinsingly well. 
-					</p>
-					<ul class="actions special">
-						<li><a href="simple-bi.html" class="button scrolly">Learn More</a></li>
-					</ul>
+		</section>
+		
+		<!-- Simple LSTM -->
+	<section id="simple" class="main style1">
+			<div class="container">
+				<div class="row gtr-150">
+					<div class="col-6 col-12-medium">
+						<header class="major">
+								<h2>Preprocessing and Stacked LSTM<br />
+							</h2>
+							<h3>Antony Fleischer</h3>
+						<p>
+							An LSTM is a type of Recurrent Neural Network, which is formed by adding a short and long term memory unit to an RNN.
+							The addition of memory units allows the network to deal with the correlation of time series in the short and long term, 
+							and store dependencies that it deems important from earlier epochs of training.
+						</p>
+						<br>
+								<a href="stacked.html" class="button scrolly">Learn More</a>
+							
+						<br>
+						<br>
+						<header class="major">
+								<h2>Simple and Bidirectional LSTM<br />
+								</h2>
+								<h3>Justin Myerson</h3>
+							</header>
+				
+							<p>
+								An LSTM is a type of Recurrent Neural Network, which is formed by adding a short and long term memory unit to an RNN.
+								The addition of memory units allows the network to deal with the correlation of time series in the short and long term, 
+								and store dependencies that it deems important from earlier epochs of training.
+							</p>
+							<br>
+								<a href="simple-bi.html" class="button scrolly">Learn More</a>
+							
+						<br>
+						<br>
+							
+					</div>
+					
+					<div class="col-6 col-12-medium imp-medium">
+						<span class="image fit"><img src="./images/RHNrZ.jpeg" alt="" /></span>
+					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+		</section>
 
 	<!-- Hyperparameter Tuning -->
 	<section id="hp-tuning" class="main style2">
@@ -220,10 +261,22 @@
 			<div class="row gtr-150">
 				<div class="col-6 col-12-medium">
 					<header class="major">
-						<h2>Results<br />
+						<h2>What We Found<br />
 						</h2>
 					</header>
+					<ul>
+							<li>
+								The results show that the stacked LSTM is the most accurate model. It had the best MSE by 40% and the highest R2 by 23%. ​However, it also takes the longest to train – nearly double the simpler models. ​
+							</li><li>
+								Prediction accuracy for all models increased with sample size - at the cost of an increased training time.​
+							</li><li>
+								The Bidirectional LSTM is the least accurate predictor and does not justify its additional complexity.​
+							</li><li>
+								The preliminary statistical analysis also determined that there is no obvious pattern linking SANREN network traffic flows with the university calendar. 
+							</li>
+						</ul>
 				</div>
+				
 				<div class="col-6 col-12-medium imp-medium">
 					<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
 				</div>
