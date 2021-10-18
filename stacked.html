@@ -281,7 +281,7 @@
 		<div class="container">
 			<div class="row gtr-150">
 				<div class="col-6 col-12-medium imp-medium">
-					<span class="image fit"><img src="./images/Stacked-Deep-LSTM-Network-Architecture.png" alt="" /></span>
+					<span class="image fit"><img src="./images/StackedR2.png" alt="" /></span>
 					<span class="image fit"><img src="./images/StackedMSEvsEpochs.png" alt="" /></span>
 				</div>
 				<div class="col-6 col-12-medium">
@@ -322,9 +322,13 @@
 					<p>The optimisation of the stacked LSTM was done using Mean Average Error, Mean Squared Error and
 						Rsquared as assesors of the model's performance on training and validation data. The entire
 						optimisation process can be
-						seen in Antony's Final Paper, although Figure ? best demonstrates why the stacked LSTM was
-						optimised the way it was. The optimal
-						hyperparameters for the stacked LSTM model are 100 epochs and 50 neurons.
+						seen in Antony's Final Paper, although the figures on the left best demonstrates why the stacked LSTM was
+						optimised the way it was. The validation set MSE at 100 epochs shows that the model is performing well on out of 
+						sample data, whereas it starts to overfit if the model is trained over more epochs. The stacked LSTM model managed to 
+						attribute almost all of the variation in the response, Bytes, to the predictors, with an Rsquared value of 99.2% for 
+						a 50-neuron model trained over 100 epochs. Therefore, the optimal
+						hyperparameters for the stacked LSTM model are 100 epochs and 50 neurons. The optimised model was then assessed relative to the optimised
+						simple and bidirectional LSTM models. The results can be seen on the home page.
 					</p>
 					<ul class="actions special">
 							<li><a href="index.html" class="button scrolly">Back to Home</a></li>
