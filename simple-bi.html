@@ -16,7 +16,7 @@
 	<!-- Simple LSTM -->
 	<section id="simple" class="main style1">
 		<div class="container">
-		<div class="inner">
+			<div class="inner">
 				<ul class="actions special">
 					<li><a href="index.html" class="button scrolly">Home</a></li>
 					<li><a href="#simple" class="button scrolly">Simple LSTM</a></li>
@@ -32,18 +32,24 @@
 					</header>
 					<h3>The Simple Child</h3>
 					<p>
-						An LSTM is a type of Recurrent Neural Network, which is formed by adding a short and long term memory unit to an RNN.
-						The addition of memory units allows the network to deal with the correlation of time series in the short and long term, 
+						An LSTM is a type of Recurrent Neural Network, which is formed by adding a short and long term
+						memory unit to an RNN.
+						The addition of memory units allows the network to deal with the correlation of time series in
+						the short and long term,
 						and store dependencies that it deems important from earlier epochs of training.
 					</p>
 					<p>
-						LSTMs have cells in the hidden layers of the neural network, which have three gates: input, an output, and a forget gate.
-						These gates control the flow of information which is needed to predict the output in the network. 
-						The gates that are added to an LSTM cell allow LSTMs to learn long term dependencies, since they are able to retain information from multiple previous time-steps.
+						LSTMs have cells in the hidden layers of the neural network, which have three gates: input, an
+						output, and a forget gate.
+						These gates control the flow of information which is needed to predict the output in the
+						network.
+						The gates that are added to an LSTM cell allow LSTMs to learn long term dependencies, since they
+						are able to retain information from multiple previous time-steps.
 					</p>
 					<p>
-						The image on the right is an example of an LSTM cell. 
-						Input is received from the previous cell and passes through the forget gates, where values deemed unimportant are dropped. 
+						The image on the right is an example of an LSTM cell.
+						Input is received from the previous cell and passes through the forget gates, where values
+						deemed unimportant are dropped.
 						Eventually new values are sent to the next cell through the output gate.
 					</p>
 				</div>
@@ -68,17 +74,22 @@
 					</header>
 					<h3>Going Back and Forth</h3>
 					<p>
-					A Bidirectional LSTM runs input from both past to future, and future to past.
-					This approach preserves information from the future and, using two hidden states combined, 
-					it is is able in any point in time to preserve information.
+						A Bidirectional LSTM runs input from both past to future, and future to past.
+						This approach preserves information from the future and, using two hidden states combined,
+						it is is able in any point in time to preserve information.
 					</p>
 					<p>
-					The Bidirectional LSTM fitted to the training data very well, and had the lowest validation loss of all the LSTM models.
-					Since information is considered from both the past and the future, it may have considered future flows which the other models were not aware of yet.
-					During the prediction phase, the Bidirectional LSTM had a higher error rate than the Simple and Stacked LSTM.
+						The Bidirectional LSTM fitted to the training data very well, and had the lowest validation loss
+						of all the LSTM models.
+						Since information is considered from both the past and the future, it may have considered future
+						flows which the other models were not aware of yet.
+						During the prediction phase, the Bidirectional LSTM had a higher error rate than the Simple and
+						Stacked LSTM.
 					</p>
-					<p>The results show that there is no benefit to using the Bidirectional model for training and predicting network traffic on the SANREN, 
-					as its complexity does not yield an improvement in prediction accuracy compared to the Simple LSTM.</p>
+					<p>The results show that there is no benefit to using the Bidirectional model for training and
+						predicting network traffic on the SANREN,
+						as its complexity does not yield an improvement in prediction accuracy compared to the Simple
+						LSTM.</p>
 				</div>
 			</div>
 		</div>
@@ -100,7 +111,8 @@
 						All three of the LSTM models are parameterised functions,
 						meaning that there is an optimal combination of parameters
 						that will minimise the chosen cost function and produce the
-						best performing model [29]. This process is known as hyperparameter tuning. The simple, bidirectional and stacked
+						best performing model [29]. This process is known as hyperparameter tuning. The simple,
+						bidirectional and stacked
 						LSTM models were fitted over a range of hyperparameters.
 						In the context of LSTMs, these parameters are epochs - the
 						number of times the data is passed through the model - and
@@ -119,8 +131,8 @@
 						hyperparameters for the stacked LSTM model are 100 epochs and 50 neurons.
 					</p>
 					<ul class="actions special">
-							<li><a href="index.html" class="button scrolly">Back to Home</a></li>
-						</ul>
+						<li><a href="index.html" class="button scrolly">Back to Home</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>

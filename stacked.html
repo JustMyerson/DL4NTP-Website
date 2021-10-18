@@ -58,7 +58,8 @@
 						models. Initially, the categorical features
 						were encoded using one-hot encoding - which creates a new
 						binary column for each instance of a categorical variable
-						- however, this caused the DataFrame’s dimensions to increase dramatically and had little impact on the predictive
+						- however, this caused the DataFrame’s dimensions to increase dramatically and had little impact
+						on the predictive
 						power of the LSTM models - so the categorical variables
 						were subsequently dropped from the DataFrame.
 
@@ -69,8 +70,10 @@
 						new variables were engineered. The first is a simple day
 						variable - which numerically encodes the day of the week -
 						and the second is a binary holiday variable - which asserts
-						whether the network flow occurred during a university holiday or not. The holiday dates were defined by the University
-						of Cape Town’s academic schedule for 2020. Byte values were encoded to 64-bit float representations, strings were removed -
+						whether the network flow occurred during a university holiday or not. The holiday dates were
+						defined by the University
+						of Cape Town’s academic schedule for 2020. Byte values were encoded to 64-bit float
+						representations, strings were removed -
 						as strings are not acceptable input for a TensorFlow LSTM -
 						and temporal values were encoded to 64-bit integer nanosecond representations.
 					</p>
@@ -160,25 +163,32 @@
 					<p>
 						To
 						investigate the possibility of multicollinearity, a correlation
-						matrix was plotted. There are strong correlations between Bytes, Packets and Duration. The option of removing
+						matrix was plotted. There are strong correlations between Bytes, Packets and Duration. The
+						option of removing
 						all of the variables apart from the three that make up the
 						stronger, yellow correlations in the upper left of the matrix
 						was considered, although due to the non-linearity of the data,
-						this design decision was rejected. Other correlative relationships of interest are the negative relationship between Bytes
+						this design decision was rejected. Other correlative relationships of interest are the negative
+						relationship between Bytes
 						and Datetime and the strong positive relationship between
-						Duration and the response. In this sample, the weak correlation between Bytes and Datetime suggest that the byte
+						Duration and the response. In this sample, the weak correlation between Bytes and Datetime
+						suggest that the byte
 						volume per flow is decreasing as time increases. Importantly,
-						this does not imply that there is less network traffic in general because network traffic volume is a function of byte
+						this does not imply that there is less network traffic in general because network traffic volume
+						is a function of byte
 						per flow as well as the number of flows. The relationship
-						between Bytes and Duration implies that longer flows generally have more data being transferred - which is a sensible
+						between Bytes and Duration implies that longer flows generally have more data being transferred
+						- which is a sensible
 						assumption.
 					</p>
 					<p>The preliminary data analysis provides an opportunity
 						to garner insight into whether SANReN traffic data varies with time and
-						day in relation to the South African university calendar. 
+						day in relation to the South African university calendar.
 						To extract the relationship between time of day, university holidays
-						and byte volumes, a pair of scatter plots were fitted. The figure on the left show the total byte flows over each day of the week.
-						Surprisingly, there is noclear distinction between bytes flows during the week compared to the weekend. Similarly, the total byte flow per
+						and byte volumes, a pair of scatter plots were fitted. The figure on the left show the total
+						byte flows over each day of the week.
+						Surprisingly, there is noclear distinction between bytes flows during the week compared to the
+						weekend. Similarly, the total byte flow per
 						per type of day is shown. Again, it is surprising to see that the total byte flows are higher on
 						average
 						during a holiday. This is unexpected, as the SANReN links
@@ -195,7 +205,8 @@
 				<div class="col-6 col-12-medium">
 					<p>
 						In the context of a distribution, skewness is a measure of how asymmetric the data is.
-						It is clear that the data is extremely skewed to the right, indicated by the density of low byte value observations to the left
+						It is clear that the data is extremely skewed to the right, indicated by the density of low byte
+						value observations to the left
 						of the curve, and the massive byte flows shown as one moves
 						along the tail to the right. The outlying values have the effect
 						of increasing the mean of the data. It is important to note
@@ -204,7 +215,8 @@
 						the outliers in the SANReN data means that the models may
 						under-predict these observations under testing conditions. The five
 						number summary in the table shows the response values in megabytes and demonstrates
-						the magntitude of outliers in the dataset. The max byte flow is 56 times larger than the average flow.
+						the magntitude of outliers in the dataset. The max byte flow is 56 times larger than the average
+						flow.
 					</p>
 					<h3>LSTM Data Preparation</h3>
 					<p>
@@ -238,7 +250,8 @@
 						package scales all variables to a range of 0 to 1. Usually,
 						categorical variables would have to be encoded separately,
 						however, the categorical variables of the SANReN dataset
-						have not been used as predictors in the LSTM models. After the LSTM models have been implemented, the response
+						have not been used as predictors in the LSTM models. After the LSTM models have been
+						implemented, the response
 						can be predicted. However, due to the scaled nature of the
 						inputs, the output is also a scaled value between 0 and 1. To
 						convert the LSTM predicted response back to a byte value, a
@@ -290,7 +303,8 @@
 						</h2>
 					</header>
 					<p>A stacked LSTM is a simple LSTM
-						with multiple LSTM layers. Rather than a hidden layer immediately producing a scalar output, the LSTM layer will provide a sequence output to the LSTM
+						with multiple LSTM layers. Rather than a hidden layer immediately producing a scalar output, the
+						LSTM layer will provide a sequence output to the LSTM
 						layer below it. This
 						implies that the data remains in a three-dimensional format
 						whilst it passes through each of the hidden LSTM layers,
@@ -308,7 +322,8 @@
 						All three of the LSTM models are parameterised functions,
 						meaning that there is an optimal combination of parameters
 						that will minimise the chosen cost function and produce the
-						best performing model [29]. This process is known as hyperparameter tuning. The simple, bidirectional and stacked
+						best performing model [29]. This process is known as hyperparameter tuning. The simple,
+						bidirectional and stacked
 						LSTM models were fitted over a range of hyperparameters.
 						In the context of LSTMs, these parameters are epochs - the
 						number of times the data is passed through the model - and
@@ -322,17 +337,22 @@
 					<p>The optimisation of the stacked LSTM was done using Mean Average Error, Mean Squared Error and
 						Rsquared as assesors of the model's performance on training and validation data. The entire
 						optimisation process can be
-						seen in Antony's Final Paper, although the figures on the left best demonstrates why the stacked LSTM was
-						optimised the way it was. The validation set MSE at 100 epochs shows that the model is performing well on out of 
-						sample data, whereas it starts to overfit if the model is trained over more epochs. The stacked LSTM model managed to 
-						attribute almost all of the variation in the response, Bytes, to the predictors, with an Rsquared value of 99.2% for 
+						seen in Antony's Final Paper, although the figures on the left best demonstrates why the stacked
+						LSTM was
+						optimised the way it was. The validation set MSE at 100 epochs shows that the model is
+						performing well on out of
+						sample data, whereas it starts to overfit if the model is trained over more epochs. The stacked
+						LSTM model managed to
+						attribute almost all of the variation in the response, Bytes, to the predictors, with an
+						Rsquared value of 99.2% for
 						a 50-neuron model trained over 100 epochs. Therefore, the optimal
-						hyperparameters for the stacked LSTM model are 100 epochs and 50 neurons. The optimised model was then assessed relative to the optimised
+						hyperparameters for the stacked LSTM model are 100 epochs and 50 neurons. The optimised model
+						was then assessed relative to the optimised
 						simple and bidirectional LSTM models. The results can be seen on the home page.
 					</p>
 					<ul class="actions special">
-							<li><a href="index.html" class="button scrolly">Back to Home</a></li>
-						</ul>
+						<li><a href="index.html#models" class="button scrolly">Back to Home</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
