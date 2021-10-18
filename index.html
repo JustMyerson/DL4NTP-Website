@@ -209,25 +209,27 @@
 					</header>
 					<ul>
 							<li>
-								The results show that the stacked LSTM is the most accurate model. It had the best MSE by 40% and the highest R2 by 23%. ​However, it also takes the longest to train – nearly double the simpler models. ​
+								The Stacked LSTM is the most accurate predictor of future traffic flows on the SANREN. It had the best test MSE by 40% and the highest test R2 by 23%. ​However, it also takes the longest to train – 
+								nearly double the time as the Simple and Bidirectional models. ​
 							</li><li>
-								Prediction accuracy for all models increased with sample size - at the cost of an increased training time.​
+								Prediction accuracy for all models increased with sample size - at the cost of an increased training time.​ Prediction time on the other hand was 
+								consistently low in our testing.
 							</li><li>
-								The Bidirectional LSTM is the least accurate predictor and does not justify its additional complexity.​
+								The Bidirectional LSTM is the least accurate predictor and does not justify its additional complexity over the Simple LSTM.​
 							</li><li>
-								The preliminary statistical analysis also determined that there is no obvious pattern linking SANREN network traffic flows with the university calendar. 
+								The preliminary statistical analysis also determined that there is no obvious pattern linking SANREN network traffic flows with the university calendar, nor the day of the week. 
 							</li>
 						</ul>
 				</div>
 				
 				<div class="col-6 col-12-medium imp-medium">
-					<span class="image fit"><img src="./images/StackedPredObs.png" alt="" /></span>
+					<span class="image fit"><img src="./images/tp.png" alt="" /></span>
+					<span class="image fit"><img src="./images/results.png" alt="" /></span>
 				</div>
 			</div>
 	</section>
 
-
-	<!-- Conclusions -->
+<!--
 	<section id="conclusions" class="main style2">
 		<div class="container">
 			<div class="row gtr-150">
@@ -255,7 +257,7 @@
 			</div>
 		</div>
 	</section>
-
+-->
 	<!-- Resources -->
 	<section id="resources" class="main style1 special">
 		<div class="container">
