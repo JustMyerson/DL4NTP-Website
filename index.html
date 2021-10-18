@@ -82,16 +82,15 @@
 				</div>
 				<div class="col-6 col-12-medium">
 					<header class="major">
-						<h2>The Problem <br /></h2>
+						<h2>The Problem</h2>
 					</header>
 					<p>
-						Modern computer networks are facing the challenges as-
-						sociated with transferring unprecedented amounts of data.
-						Furthermore, large, confederated computer networks exhibit
+						Modern computer networks are facing the challenges associated with transferring unprecedented amounts of data.
+						Furthermore, large computer networks exhibit
 						volatile network traffic flows. Historically, network operators
-						have attempted to use traditional statistical learning
+						have attempted to use statistical learning
 						methods to optimise their networks. However, as
-						network flows increase dramatically, network operators
+						network flows increase, network operators
 						require more efficient and accurate time-series processing
 						methods to overcome network congestion, reduce access
 						times, allocate bandwidth effectively and detect traffic anomalies.
@@ -109,7 +108,9 @@
 						focus of this project, the computational feasibility of LSTM
 						and LSTM-derivative prediction models will also be investigated.
 					</p>
-	
+					<ul class="actions special">
+							<li><a href="#simple" class="button scrolly">Next: Individual Work</a></li>
+						</ul>
 							
 
 				</div>
@@ -122,8 +123,10 @@
 			<div class="container">
 				<div class="row gtr-150">
 					<div class="col-6 col-12-medium">
-							<p>The Bidirectional, Simple and Stacked LSTM models were all developed in Python.
-									The Simple LSTM served as a benchmark with which to compare our Bidirectional and Stacked LSTMs.
+						<h2>Individual Work</h2>
+							<p>The data pipeline was split up so that work could be parallelized. 
+								The Bidirectional, Simple and Stacked LSTM models were all developed in Python using Keras, whilst the preprocessing
+								and data analysis was done using pandas and NumPy. In this project, the Simple LSTM served as a benchmark with which to compare our Bidirectional and Stacked LSTMs.
 									</p>
 						<header class="major">
 								<h2>Preprocessing and Stacked LSTM<br />
@@ -145,19 +148,30 @@
 							</header>
 				
 							<p>
-								An LSTM is a type of Recurrent Neural Network, which is formed by adding a short and long term memory unit to an RNN.
-								The addition of memory units allows the network to deal with the correlation of time series in the short and long term, 
-								and store dependencies that it deems important from earlier epochs of training.
+								Justin implemented and evaluated the simple and bidirectional LSTM models.
 							</p>
 							<br>
 								<a href="simple-bi.html" class="button scrolly">Learn More</a>
 							
 						<br>
 						<br>
+						<br>
+						<br>
+						<ul class="actions special">
+								<li><a href="#models" class="button scrolly">Next: Model Comparisons</a></li>
+							</ul>
 							
 					</div>
 					
 					<div class="col-6 col-12-medium imp-medium">
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
 						<br>
 						<br>
 						<br>
@@ -173,7 +187,7 @@
 		</section>
 
 	<!-- Hyperparameter Tuning -->
-	<section id="hp-tuning" class="main style2">
+	<section id="models" class="main style2">
 		<div class="container">
 			<div class="row gtr-150">
 				<div class="col-6 col-12-medium">
@@ -198,6 +212,11 @@
 						methods to overcome network congestion, reduce access
 						times, allocate bandwidth effectively and detect traffic anomalies.
 					</p>
+
+					<ul class="actions special">
+							<li><a href="#results" class="button scrolly">Next: Results</a></li>
+						</ul>
+						
 				</div>
 			</div>
 		</div>
