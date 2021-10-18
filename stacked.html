@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Photon by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 
 <head>
@@ -25,7 +20,7 @@
 				<ul class="actions special">
 					<li><a href="index.html" class="button scrolly">Home</a></li>
 					<li><a href="#prelim" class="button scrolly">Preliminary Data Analysis</a></li>
-					<li><a href="#stacked" class="button scrolly">Stacked LSTM</a></li>
+					<li><a href="#Stacked" class="button scrolly">Stacked LSTM</a></li>
 				</ul>
 			</div>
 			<div class="row gtr-150">
@@ -34,25 +29,25 @@
 						<h2>Data Preprocessing<br />
 						</h2>
 					</header>
-					<h3>Obtaining SANReN Data</h3>
+					<h3>Obtaining SANREN Data</h3>
 					<p>
 						The first step in conducting our research was to obtain times-
-						series network traffic data from SANReN. This data was
+						series network traffic data from SANREN. This data was
 						accessed through the University of Cape Town. The data is
 						stored as tab-separated .csv files, and each data set consists
 						of a multitude of variables, each describing the quality of the
-						network traffic flows on SANReN over a measured period of
-						time. The SANReN data has been placed on a data store at the
+						network traffic flows on SANREN over a measured period of
+						time. The SANREN data has been placed on a data store at the
 						University of Cape Town - which is available to be accessed
 						remotely. However, for this research project, a smaller 47000-
 						observation sample was used to train, validate and test the
 						LSTMs that this paper evaluates. An example of the format
-						of the SANReN data is provided on the right. The response variable for
+						of the SANREN data is provided on the right. The response variable for
 						this project is Bytes per flow.
 					</p>
 					<h3>Data Engineering</h3>
 					<p>
-						The raw SANReN data has to be extracted and cleaned for
+						The raw SANREN data has to be extracted and cleaned for
 						a neural network model. This preprocessing step transforms. raw data into input for each of the
 						neural network
 						models. Initially, the categorical features
@@ -67,7 +62,7 @@
 					<p>
 						Additionally, to capture the relationship between South
 						African university schedules and network traffic data, two
-						new variables were engineered. The first is a simple day
+						new variables were engineered. The first is a Simple day
 						variable - which numerically encodes the day of the week -
 						and the second is a binary holiday variable - which asserts
 						whether the network flow occurred during a university holiday or not. The holiday dates were
@@ -161,7 +156,7 @@
 					</header>
 					<p>To provide insight
 						into the underlying patterns, correlations and composition
-						of the SANReN data, a preliminary statistical analysis was
+						of the SANREN data, a preliminary statistical analysis was
 						performed.
 					</p>
 					<p>
@@ -186,7 +181,7 @@
 						assumption.
 					</p>
 					<p>The preliminary data analysis provides an opportunity
-						to garner insight into whether SANReN traffic data varies with time and
+						to garner insight into whether SANREN traffic data varies with time and
 						day in relation to the South African university calendar.
 						To extract the relationship between time of day, university holidays
 						and byte volumes, a pair of scatter plots were fitted. The figure on the left show the total
@@ -195,7 +190,7 @@
 						weekend. Similarly, the total byte flow per
 						per type of day is shown. Again, it is surprising to see that the total byte flows are higher on
 						average
-						during a holiday. This is unexpected, as the SANReN links
+						during a holiday. This is unexpected, as the SANREN links
 						research units and other university-related institutions.</p>
 
 						<ul class="actions special">
@@ -220,7 +215,7 @@
 						of increasing the mean of the data. It is important to note
 						that the LSTM models in this project are designed to capture
 						outlying burst flows, although the magnitude of some of
-						the outliers in the SANReN data means that the models may
+						the outliers in the SANREN data means that the models may
 						under-predict these observations under testing conditions. The five
 						number summary in the table shows the response values in megabytes and demonstrates
 						the magntitude of outliers in the dataset. The max byte flow is 56 times larger than the average
@@ -230,7 +225,7 @@
 					<p>
 						All machine learning algorithms require that the input data is split into training
 						and testing samples. The training data is the sample of the
-						SANReN data that is used to adjust the weights of the LSTM.
+						SANREN data that is used to adjust the weights of the LSTM.
 						For our implementation of the LSTMs, the training sample
 						is 64% of the full input sample. Additionally, the training
 						sample is split to produce the validation set. An interesting
@@ -257,7 +252,7 @@
 						range of values. The MinMaxScaler from the scikit-learn
 						package scales all variables to a range of 0 to 1. Usually,
 						categorical variables would have to be encoded separately,
-						however, the categorical variables of the SANReN dataset
+						however, the categorical variables of the SANREN dataset
 						have not been used as predictors in the LSTM models. After the LSTM models have been
 						implemented, the response
 						can be predicted. However, due to the scaled nature of the
@@ -299,7 +294,7 @@
 	</section>
 
 	<!-- Stacked LSTM -->
-	<section id="stacked" class="main style2">
+	<section id="Stacked" class="main style2">
 		<div class="container">
 			<div class="row gtr-150">
 				<div class="col-6 col-12-medium imp-medium">
@@ -312,14 +307,15 @@
 						<h2>Stacked LSTM<br />
 						</h2>
 					</header>
-					<p>A stacked LSTM is a simple LSTM
+					<h3>Stacking Them Layers</h3>
+					<p>A Stacked LSTM is a Simple LSTM
 						with multiple LSTM layers. Rather than a hidden layer immediately producing a scalar output, the
 						LSTM layer will provide a sequence output to the LSTM
 						layer below it. This
 						implies that the data remains in a three-dimensional format
 						whilst it passes through each of the hidden LSTM layers,
 						before being converted to the required scalar value.
-						Our implementation of a stacked LSTM in Keras uses
+						Our implementation of a Stacked LSTM in Keras uses
 						three LSTM layers, each with the same number of neurons.
 						Essentially, an LSTM layer returns
 						a sequential output rather than a single scalar. The output
@@ -332,8 +328,8 @@
 						All three of the LSTM models are parameterised functions,
 						meaning that there is an optimal combination of parameters
 						that will minimise the chosen cost function and produce the
-						best performing model [29]. This process is known as hyperparameter tuning. The simple,
-						bidirectional and stacked
+						best performing model [29]. This process is known as hyperparameter tuning. The Simple,
+						Bidirectional and Stacked
 						LSTM models were fitted over a range of hyperparameters.
 						In the context of LSTMs, these parameters are epochs - the
 						number of times the data is passed through the model - and
@@ -344,24 +340,24 @@
 						resulted in 12 permutations of hyperparameter combinations for each model.
 					</p>
 
-					<p>The optimisation of the stacked LSTM was done using Mean Average Error, Mean Squared Error and
+					<p>The optimisation of the Stacked LSTM was done using Mean Average Error, Mean Squared Error and
 						Rsquared as assesors of the model's performance on training and validation data. The entire
 						optimisation process can be
-						seen in Antony's Final Paper, although the figures on the left best demonstrates why the stacked
+						seen in Antony's Final Paper, although the figures on the left best demonstrates why the Stacked
 						LSTM was
 						optimised the way it was. The validation set MSE at 100 epochs shows that the model is
 						performing well on out of
-						sample data, whereas it starts to overfit if the model is trained over more epochs. The stacked
+						sample data, whereas it starts to overfit if the model is trained over more epochs. The Stacked
 						LSTM model managed to
 						attribute almost all of the variation in the response, Bytes, to the predictors, with an
 						Rsquared value of 99.2% for
 						a 50-neuron model trained over 100 epochs. Therefore, the optimal
-						hyperparameters for the stacked LSTM model are 100 epochs and 50 neurons. The optimised model
+						hyperparameters for the Stacked LSTM model are 100 epochs and 50 neurons. The optimised model
 						was then assessed relative to the optimised
-						simple and bidirectional LSTM models. The results can be seen on the home page. 
+						Simple and Bidirectional LSTM models. The results can be seen on the home page. 
 					</p>
-					<p>The stacked model managed to capture the temporal trend in the data extremely well, with a test Rsquared value of 80%. In the figure on
-						the left, the stacked LSTM.
+					<p>The Stacked model managed to capture the temporal trend in the data extremely well, with a test Rsquared value of 80%. In the figure on
+						the left, the Stacked LSTM.
 					</p>
 					<ul class="actions special">
 						<li><a href="index.html#models" class="button scrolly">Back to Home</a></li>
@@ -463,21 +459,21 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 									<li><a href="#" class="button primary small">Small</a></li>
 									<li><a href="#" class="button small">Small</a></li>
 								</ul>
-								<ul class="actions stacked">
+								<ul class="actions Stacked">
 									<li><a href="#" class="button primary">Default</a></li>
 									<li><a href="#" class="button">Default</a></li>
 								</ul>
-								<ul class="actions stacked">
+								<ul class="actions Stacked">
 									<li><a href="#" class="button primary small">Small</a></li>
 									<li><a href="#" class="button small">Small</a></li>
 								</ul>
 							</div>
 							<div class="col-6 col-12-medium">
-								<ul class="actions stacked">
+								<ul class="actions Stacked">
 									<li><a href="#" class="button primary fit">Default</a></li>
 									<li><a href="#" class="button fit">Default</a></li>
 								</ul>
-								<ul class="actions stacked">
+								<ul class="actions Stacked">
 									<li><a href="#" class="button primary small fit">Small</a></li>
 									<li><a href="#" class="button small fit">Small</a></li>
 								</ul>
