@@ -87,7 +87,7 @@
 						Since information is considered from both the past and the future, it may have considered future
 						flows which the other models were not aware of yet.
 						During the prediction phase, the Bidirectional LSTM had a higher error rate than the Simple and
-						Stacked LSTM.
+						Stacked LSTM which led us to believe it was overcompensating for the fluctuations in traffic we saw later on.
 					</p>
 					<p>The results show that there is no benefit to using the Bidirectional model for training and
 						predicting network traffic on the SANREN,
@@ -116,27 +116,11 @@
 					</header>
 					<h3>It's A Fine Line</h3>
 					<p>
-						All three of the LSTM models are parameterised functions,
-						meaning that there is an optimal combination of parameters
-						that will minimise the chosen cost function and produce the
-						best performing model [29]. This process is known as hyperparameter tuning. The simple,
-						bidirectional and stacked
-						LSTM models were fitted over a range of hyperparameters.
-						In the context of LSTMs, these parameters are epochs - the
-						number of times the data is passed through the model - and
-						neurons - the number of memory units in each LSTM layer.
-						In this study, each LSTM model was trained using a range
-						of epochs from 25 to 150, with 25 epoch intervals, and with
-						50 or 100 neurons in each LSTM layer of the model. This
-						resulted in 12 permutations of hyperparameter combinations for each model.
-					</p>
-
-					<p>The optimisation of the stacked LSTM was done using Mean Average Error, Mean Squared Error and
-						Rsquared as assesors of the model's performance on training and validation data. The entire
-						optimisation process can be
-						seen in Antony's Final Paper, although Figure ? best demonstrates why the stacked LSTM was
-						optimised the way it was. The optimal
-						hyperparameters for the stacked LSTM model are 100 epochs and 50 neurons.
+						Training and validation loss allowed for the optimal hyperparamters to be chosen.
+						When validation loss reached a minimum, training was stopped. Including more neurons, or the number of memory units
+						in each layer proved to be advantageous. However, there is no such thing as a free lunch. Training time too increased, as more neurons were added.
+						Both the Simple and Bidirectional LSTMs maintained a consistently lower training time than the Stacked LSTM. They are less complex than the Stacked LSTM,
+					using less layers too. 
 					</p>
 					<ul class="actions special">
 						<li><a href="index.html#models" class="button scrolly">Back to Home</a></li>
