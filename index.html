@@ -109,14 +109,8 @@
 						focus of this project, the computational feasibility of LSTM
 						and LSTM-derivative prediction models will also be investigated.
 					</p>
-					<p>The SANREN data was extracted from the SANREN server. 
-							Traffic flows from 5 consecutive days (5 - 10 July 2020) were extracted. 
-							In order to standardise the data, all traffic flows were converted into bytes to create a single unit of measurement.
-							The LSTM models were evaluated during and after training. During training, the training and validation losses were measured. 
-							When predicting future traffic flows, they were then assessed on their prediction accuracy.</p>
-							<p>The Bidirectional, Simple and Stacked LSTM models were all developed in Python.
-							The Simple LSTM served as a benchmark with which to compare our Bidirectional and Stacked LSTMs.
-							Once training validation error reaches a minimum, training is stopped and those hyperparamters are used for testing.</p>
+	
+							
 
 				</div>
 			</div>
@@ -128,14 +122,16 @@
 			<div class="container">
 				<div class="row gtr-150">
 					<div class="col-6 col-12-medium">
+							<p>The Bidirectional, Simple and Stacked LSTM models were all developed in Python.
+									The Simple LSTM served as a benchmark with which to compare our Bidirectional and Stacked LSTMs.
+									</p>
 						<header class="major">
 								<h2>Preprocessing and Stacked LSTM<br />
 							</h2>
 							<h3>Antony Fleischer</h3>
 						<p>
-							An LSTM is a type of Recurrent Neural Network, which is formed by adding a short and long term memory unit to an RNN.
-							The addition of memory units allows the network to deal with the correlation of time series in the short and long term, 
-							and store dependencies that it deems important from earlier epochs of training.
+							Antony designed and implemented the preprocessing and analysis sections of the data pipeline. He also implemented and 
+							evaluated the stacked LSTM model.
 						</p>
 						<br>
 								<a href="stacked.html" class="button scrolly">Learn More</a>
@@ -162,7 +158,16 @@
 					</div>
 					
 					<div class="col-6 col-12-medium imp-medium">
-						<span class="image fit"><img src="./images/RHNrZ.jpeg" alt="" /></span>
+						<br>
+						<br>
+						<br>
+						<br>
+						<span class="image fit"><img src="./images/pre.png" alt="" /></span>
+						<br>
+						<br>
+						<br>
+						<br>
+						<span class="image fit"><img src="./images/lstm.png" alt="" /></span>
 					</div>
 				</div>
 		</section>
@@ -172,11 +177,11 @@
 		<div class="container">
 			<div class="row gtr-150">
 				<div class="col-6 col-12-medium">
-
+					<!--Justin please put results here-->
 				</div>
 				<div class="col-6 col-12-medium">
 					<header class="major">
-						<h2>Hyperparameter Tuning <br /></h2>
+						<h2>Model Comparison<br /></h2>
 						<h3>Antony Fleischer and Justin Myerson</h3>
 					</header>
 
